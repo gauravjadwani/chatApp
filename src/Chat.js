@@ -44,12 +44,10 @@ class Chat extends React.Component{
                     <div className="col-4">
                         <div className="card">
                             <div className="card-body">
-                                <div className="card-title">Global Chat</div>
-                                <hr/>
+
 
                                 {this.state.messages.map(message => {
                                     return (
-                                      <div>
                                 <MessageList
                                     className='message-list'
                                     lockable={true}
@@ -62,24 +60,22 @@ class Chat extends React.Component{
                                             date: new Date(),
                                         }
                                     ]} />
-                                    </div>
                                   );
-                                })};
+                                })}
 
                             </div>
                             <div className="card-footer">
-                                <input type="text" placeholder="Username" value={this.state.username} onChange={ev => this.setState({username: ev.target.value})} className="form-control"/>
-                                <br/>
-                                <input type="text" placeholder="Message" className="form-control" value={this.state.message} onChange={ev => this.setState({message: ev.target.value})}/>
-                                <br/>
-                                <button onClick={this.sendMessage} className="btn btn-primary form-control">Send</button>
+
                                 <Input
                                     ref='input'
-                                    placeholder="Type here..."/>
-
-
+                                    placeholder="Type here..."
+                                    value={this.state.message}
+                                    onChange={ev => this.setState({message: ev.target.value})}
+                                    />
                                 <Button
-                                    text={'click me!'} />
+                                    text={'click me!'}
+                                    onClick={this.sendMessage}
+                                    />
                             </div>
                         </div>
                     </div>
